@@ -1,3 +1,1 @@
-Created with ArtMagedon
-2
-Test Sync 1
+Created by ArtMagedon
