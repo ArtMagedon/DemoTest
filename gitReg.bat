@@ -1,15 +1,19 @@
 #!/bin/bash
-name="ArtMagedon"					#input git name
-email="ap20041026@yandex.ru"				#input git email
+name1="ArtMagedon"
+echo "Input name"
+read name					#input git name
+email1="ap20041026@yandex.ru"
+echo "Input email"
+read email				#input git email
 directory="Data"
 git config --global user.name $name
 git config --global user.email $email
 git config --global init.defaultBranch main
 #git config --list
-mkdir $directory
+mkdir ~/$directory
 #cp gitReg.bat $directory"/gitReg.bat"
 #cp installConfigGitSsh.bat $directory"/installConfigGitSsh.bat"
-cd $directory
+cd ~/$directory
 #touch "README.md"
 #echo "Created with "$name > README.md
 git init
