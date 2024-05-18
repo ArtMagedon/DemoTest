@@ -1,25 +1,54 @@
 #!/bin/bash
+
+if [ -s ~/configGit.dt ]
+then
+
+count=1
+while read line
+do
+#echo "Line $count: $line"
+if [ $count -eq 1 ]
+then
+name=$line
+fi
+if [ $count -eq 2 ]
+then
+email=$line
+fi
+if [ $count -eq 3 ]
+then
+directory=$line
+fi
+if [ $count -eq 4 ]
+then
+link=$line
+fi
+count=$(( $count + 1 ))
+done <<<$(cat ~/configGit.dt)
+
+else
+
 name1="ArtMagedon"
 echo "Input name"
-read name					#input git name
+read name                                      #input git name
 email1="ap20041026@yandex.ru"
 echo "Input email"
-read email				#input git email
-directory="Data"
+read email                             #input git email
+echo "Input local directory"
+read directory
+echo "Input git directory"
+read link                              #input git directory link
+
+fi
+
+
+
 git config --global user.name $name
 git config --global user.email $email
 git config --global init.defaultBranch main
-#git config --list
 mkdir ~/$directory
-#cp gitReg.bat $directory"/gitReg.bat"
-#cp installConfigGitSsh.bat $directory"/installConfigGitSsh.bat"
 cd ~/$directory
-#touch "README.md"
-#echo "Created with "$name > README.md
 git init
-#git add .
-#git commit -m "commit reg"
 git branch -M main
-git remote add origin git@github.com:ArtMagedon/DemoTest.git
-#git push -u origin main
-git pull git@github.com:ArtMagedon/DemoTest.git
+git remote add origin $link
+git pull $link

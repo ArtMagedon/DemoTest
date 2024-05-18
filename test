@@ -1,0 +1,42 @@
+#!/bin/bash
+if [ -s ~/configGit.dt ]
+then
+echo 1
+else
+echo 0
+fi
+
+
+count=1
+
+while read line
+do
+#echo "Line $count: $line"
+
+if [ $count -eq 1 ]
+then
+name=$line
+fi
+
+if [ $count -eq 2 ]
+then
+email=$line
+fi
+
+if [ $count -eq 3 ]
+then
+dir=$line
+fi
+
+if [ $count -eq 4 ]
+then
+gDir=$line
+fi
+
+count=$(( $count + 1 ))
+done <<<$(cat ~/configGit.dt)
+
+echo "$name"
+echo "$email"
+echo "$dir"
+echo "$gDir"

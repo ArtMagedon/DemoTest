@@ -2,6 +2,7 @@
 sudo apt update
 sudo apt upgrade
 sudo apt install git
+sudo apt install screen
 ssh-keygen -t ed25519
 mv ~/.ssh/id_ed25519 ~/.ssh/personal_key
 mv ~/.ssh/id_ed25519.pub ~/.ssh/personal_key.pub
